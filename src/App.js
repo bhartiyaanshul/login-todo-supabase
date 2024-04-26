@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import TodoPage from './Pages/TodoPage/TodoPage';
+import Home from './Pages/HomePage/Home';
+import ProductManager from './Pages/ProductManagerPage/ProductManager';
+import Quotes from './Pages/QuotesPage/Quotes';
+import ExpenseTracker from './Pages/ExpenseTrackerPage/ExpenseTracker';
+import Login from './Pages/LoginPage/Login';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/todo' element={<TodoPage />} />
+        <Route path='/productmanager' element={<ProductManager />} />
+        <Route path='/quotes' element={<Quotes />} />
+        <Route path='/expensetracker' element={<ExpenseTracker />} />
+      </Routes>
     </div>
   );
 }
