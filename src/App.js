@@ -7,6 +7,7 @@ import ProductManager from './Pages/ProductManagerPage/ProductManager';
 import Quotes from './Pages/QuotesPage/Quotes';
 import ExpenseTracker from './Pages/ExpenseTrackerPage/ExpenseTracker';
 import Login from './Pages/LoginPage/Login';
+import SignUp from './Pages/SignUpPage/SignUp';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/signup' element={<SignUp />} />
         <Route path='/login' element={<Login />} />
         <Route path='/todo' element={<TodoPage />} />
         <Route path='/productmanager' element={<ProductManager />} />
