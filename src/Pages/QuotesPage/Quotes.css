@@ -1,0 +1,37 @@
+.quote-app {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 30px;
+}
+
+.quote-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+
+.qoute-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tags {
+    display: flex;
+    gap: 10px;
+}
+
+.tag {
+    padding: 5px 10px;
+    background-color: #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.author {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+}
