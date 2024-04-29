@@ -43,7 +43,7 @@ function Login() {
             <div className='content-container'>
                 <div className='signin-container'>
                     <div className='sign-in-text'>Sign In</div>
-                    <input type='text' onChange={handleEmail} value={email} placeholder='Email'></input>
+                    <input type='text' onChange={handleEmail} value={email} placeholder='Email' required></input>
                     <input type='password' onChange={handlePassword} value={password} placeholder='Password'></input>
                     <button type='submit' onClick={handleLogin} >LOGIN</button>
                     <div>Don't have Account? <Link to='/signup'>SignUp</Link></div>
