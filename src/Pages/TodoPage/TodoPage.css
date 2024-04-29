@@ -3,6 +3,7 @@
     background-color: rgb(117, 150, 228);
     font-size: 30px;
     color: aliceblue;
+    align-items: center;
 }
 .add-container{
     padding: 30px;

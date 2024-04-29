@@ -85,7 +85,7 @@ function ExpenseTracker() {
                 </div>
             </div>
             <div className='sidebar'>
-                <img className='avatar' src={image} alt='image'/>
+                <img className='avatar' src={image} alt=''/>
                 <div className='balance'>${balance}</div>
             </div>
         </div>

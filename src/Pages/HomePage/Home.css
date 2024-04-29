@@ -1,0 +1,16 @@
+.app{
+    padding: 20px;
+}
+.examples {
+    display: flex;
+    gap: 20px;
+}
+
+.example {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

@@ -28,12 +28,13 @@ function Login() {
             email: email,
             password: password,
         })
+        console.log(error)
 
         if(!data.user){
             alert('Invalid login credentials')
         }
         else{
-            navigate("/todo")
+            navigate("/")
         }
     }
 
