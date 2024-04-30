@@ -3,9 +3,7 @@ import "./Login.css"
 import { useNavigate, Link } from 'react-router-dom'
 import { createClient } from '@supabase/supabase-js'
 
-// const supabase = createClient('https://jqsqjrcaxnxjrqennhmk.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impxc3FqcmNheG54anJxZW5uaG1rIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTM1MTI3MjEsImV4cCI6MjAyOTA4ODcyMX0.19Y3Zjd72vKn6S9Us2djfjj7BUDSkkqBwbu6j8y2ug4')
 const supabase = createClient(process.env.REACT_APP_SUPABASE_URL, process.env.REACT_APP_SUPABASE_KEY)
-
 
 function Login() {
 
@@ -13,19 +11,10 @@ function Login() {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    // let user = false
-    // const [ token, setToken] = useState();
 
-    function handleEmail(e) {
-        setEmail(e.target.value)
-    }
+    const handleEmail = (e) => setEmail(e.target.value)
 
-    function handlePassword(e) {
-        setPassword(e.target.value)
-    }
-
-    // console.log(env.SUPABASE_URL)
-    // console.log(env.SUPABASE_KEY)
+    const handlePassword = (e) => setPassword(e.target.value)
 
     async function handleLogin() {
         const { data, error } = await supabase.auth.signInWithPassword({
@@ -34,12 +23,11 @@ function Login() {
         })
         console.log(error)
 
-        if(!data.user){
+        if (!data.user) {
             alert('Invalid login credentials')
         }
-        else{
+        else {
             navigate("/")
-            
         }
     }
 

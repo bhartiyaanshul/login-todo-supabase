@@ -37,14 +37,6 @@ function ExpenseTracker() {
     }
 
     function handleOutExpense(e) {
-        // if(title === ''){
-        //     alert("Title Field is empty")
-        //     return;
-        // }
-        // if(amount === ''){
-        //     alert("Amount Field is empty")
-        //     return;
-        // }
         if (title === "" || amount === "") {
             alert("Required fields are empty")
             return;

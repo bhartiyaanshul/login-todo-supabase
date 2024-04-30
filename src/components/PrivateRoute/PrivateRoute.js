@@ -7,25 +7,24 @@ const supabase = createClient(process.env.REACT_APP_SUPABASE_URL, process.env.RE
 const PrivateRoute = (props) => {
     const navigate = useNavigate()
 
-    const {Component} = props
+    const { Component } = props
 
-    async function getUser(){
+    async function getUser() {
         const { data: { user } } = await supabase.auth.getUser()
-        if(!user){
+        if (!user) {
             navigate('/login')
         }
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         getUser()
-        
+
     })
-    return(
+    return (
         <div>
-            <Component/>
+            <Component />
         </div>
     )
-
 }
 
 export default PrivateRoute

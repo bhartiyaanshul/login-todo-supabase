@@ -1,18 +1,42 @@
 import React, { useEffect, useState } from 'react'
+import { createClient } from '@supabase/supabase-js'
 import './TodoPage.css'
+
+const supabase = createClient(process.env.REACT_APP_SUPABASE_URL, process.env.REACT_APP_SUPABASE_KEY)
 
 function TodoPage() {
 
     const [ todos, setTodos] = useState([])
     const [ title, setTitle] = useState('')
     const [ task, setTask] = useState('')
-    
+    const [ session, setSession] = useState('')
+
+    async function getUser() {
+
+        const { data, error } = await supabase.auth.getSession()
+        const { session } = data
+        if(session){
+            const {access_token} = session
+            console.log(access_token)
+            setSession(access_token)
+        }
+    }
+
     useEffect(() => {
-        fetchData()
-    }, [])
+        getUser()
+        if (session)
+            fetchData()
+    },[session])
 
     async function fetchData(){
-        await fetch('http://localhost:3000/post/')
+        await fetch('http://localhost:3000/post/',
+        {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': " "+ session
+            }
+        })
         .then(response => response.json())
         .then(data => setTodos(data))
     }
@@ -29,7 +53,8 @@ function TodoPage() {
         fetch('http://localhost:3000/post/', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': " "+ session
             },
             body: JSON.stringify({
                 title: title,
@@ -50,10 +75,17 @@ function TodoPage() {
     function onDelete(id){
         fetch(`http://localhost:3000/post/?id=${id}`, {
             method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': " "+ session
+            }
         })
         .then(response => response.json())
         fetchData()
     }
+
+
+        
 
   return (
     <div>

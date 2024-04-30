@@ -10,8 +10,6 @@ function SignUp() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
-    // let user = false
-    // const [ token, setToken] = useState();
 
     function handleEmail(e) {
         setEmail(e.target.value)

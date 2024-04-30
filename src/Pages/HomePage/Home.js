@@ -1,10 +1,20 @@
 import React from 'react'
 import './Home.css'
 import { Link } from 'react-router-dom'
+import { createClient } from '@supabase/supabase-js'
+
+const supabase = createClient(process.env.REACT_APP_SUPABASE_URL, process.env.REACT_APP_SUPABASE_KEY)
 
 const Home = () => {
+
+    async function handleSignOut(){
+        const { error } = await supabase.auth.signOut()
+    }
     return (
         <div className='app'>
+            <div className='header'>
+                <button type='submit' onClick={handleSignOut}>LogOut</button>
+            </div>
             <h1>Pages</h1>
             <div className='examples'>
                 <div className='example'>
